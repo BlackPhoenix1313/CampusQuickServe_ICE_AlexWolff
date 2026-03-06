@@ -21,7 +21,20 @@ public class QuickServe_AlexWolff {
         double vat = order1.calculateVAT(subtotalAfterDiscount);
         double total = order1.calculateTotal();
 
-
+        //display the receipt for my stupid user 
+        JOptionPane.showMessageDialog(null,
+            "Customer: " + order1.customerName +
+            "\nStudent Number: " + order1.studentNumber +
+            "\nItem: " + order1.itemOrder +
+            "\nQuantity: " + order1.quantity +
+            "\nPrice per Item: R" + order1.pricePerItem +
+            "\nSubtotal: R" + subtotal +
+            "\nDiscount Applied: R" + discount +
+            "\nVAT (15%): R" + vat +
+            "\nFinal Total: R" + total +
+            "\nThank you for your order!"
+                
+        );
     }
 }
 
