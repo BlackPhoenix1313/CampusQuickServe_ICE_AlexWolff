@@ -1,50 +1,61 @@
 package com.mycompany.quickserve_alexwolff;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
  * @author Alex Wolff
  */
 public class Order {
-    String customerName;
-    String studentNumber;
-    String itemOrder;
-    int quantity;
-    double pricePerItem;
-    boolean discountApplied = false;
+    // attributes for storing all the order details
+    private String customerName;
+    private String studentNumber;
+    private String itemOrder;
+    private int quantity;
+    private double pricePerItem;
+    private boolean discountApplied = false; // flag to check if discount was used
 
-    //constant for VAT
+    // constant for VAT (15%), written in all caps because constants never change
     static final double VAT_RATE = 0.15;
 
-    //empty constructor
+    // empty constructor (object starts with no values until we set them)
     public Order() {}
 
-    //method for calculation of subtotal
-    public double calculateSubtotal() {
-        return quantity * pricePerItem;
+    // getters (used to read private values outside this class)
+    public String getCustomerName() { return customerName; }
+    public String getStudentNumber() { return studentNumber; }
+    public String getItemOrder() { return itemOrder; }
+    public int getQuantity() { return quantity; }
+    public double getPricePerItem() { return pricePerItem; }
+    public boolean isDiscountApplied() { return discountApplied; }
+
+    // setters (used to assign values from JOptionPane input)
+    public void setCustomerName(String customerName) { this.customerName = customerName; }
+    public void setStudentNumber(String studentNumber) { this.studentNumber = studentNumber; }
+    public void setItemOrder(String itemOrder) { this.itemOrder = itemOrder; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public void setPricePerItem(double pricePerItem) { this.pricePerItem = pricePerItem; }
+
+    // method to calculate subtotal (quantity * price per item)
+    public double calculateSubtotal() { 
+        return quantity * pricePerItem; 
     }
 
-    //method for VAT calculation
+    // method to calculate VAT (15% of subtotal after discount)
     public double calculateVAT(double subtotalAfterDiscount) {
         return subtotalAfterDiscount * VAT_RATE;
     }
 
-    //method for discount calculation
+    // method to check if discount applies and return discount amount
     public double applyDiscount() {
         if (quantity > 3) {
-            discountApplied = true;
+            discountApplied = true; // mark that discount was applied
             return calculateSubtotal() * 0.10; // 10% discount
         } else {
-            discountApplied = false;
+            discountApplied = false; // no discount
             return 0.0;
         }
     }
 
-    //method for final total
+    // method to calculate the final total (subtotal - discount + VAT)
     public double calculateTotal() {
         double subtotal = calculateSubtotal();
         double discount = applyDiscount();
@@ -53,4 +64,5 @@ public class Order {
         return subtotalAfterDiscount + vat;
     }
 }
+
 

@@ -8,11 +8,11 @@ public class QuickServe_AlexWolff {
         Order order1 = new Order();
 
         //collect input from user
-        order1.customerName = JOptionPane.showInputDialog("Enter customer name:");
-        order1.studentNumber = JOptionPane.showInputDialog("Enter student number:");
-        order1.itemOrder = JOptionPane.showInputDialog("Enter item ordered:");
-        order1.quantity = Integer.parseInt(JOptionPane.showInputDialog("Enter quantity:"));
-        order1.pricePerItem = Double.parseDouble(JOptionPane.showInputDialog("Enter price per item:"));
+        order1.setCustomerName(JOptionPane.showInputDialog("Enter customer name:"));
+        order1.setStudentNumber(JOptionPane.showInputDialog("Enter student number:"));
+        order1.setItemOrder(JOptionPane.showInputDialog("Enter item ordered:"));
+        order1.setQuantity(Integer.parseInt(JOptionPane.showInputDialog("Enter quantity:")));
+        order1.setPricePerItem(Double.parseDouble(JOptionPane.showInputDialog("Enter price per item:")));
 
         //perform calculations
         double subtotal = order1.calculateSubtotal();
@@ -23,18 +23,18 @@ public class QuickServe_AlexWolff {
 
         //display the receipt for my stupid user 
         JOptionPane.showMessageDialog(null,
-            "Customer: " + order1.customerName +
-            "\nStudent Number: " + order1.studentNumber +
-            "\nItem: " + order1.itemOrder +
-            "\nQuantity: " + order1.quantity +
-            "\nPrice per Item: R" + order1.pricePerItem +
+            "Customer: " + order1.getCustomerName() +
+            "\nStudent Number: " + order1.getStudentNumber() +
+            "\nItem: " + order1.getItemOrder() +
+            "\nQuantity: " + order1.getQuantity() +
+            "\nPrice per Item: R" + order1.getPricePerItem() +
             "\nSubtotal: R" + subtotal +
             "\nDiscount Applied: R" + discount +
             "\nVAT (15%): R" + vat +
             "\nFinal Total: R" + total +
             "\nThank you for your order!"
-                
         );
     }
 }
+
 
