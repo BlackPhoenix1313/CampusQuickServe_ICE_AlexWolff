@@ -34,6 +34,8 @@ public class QuickServe_AlexWolff {
             "\nFinal Total: R" + total +
             "\nThank you for your order!"
         );
+        
+        //changes
     }
 }
 
